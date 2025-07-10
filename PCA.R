@@ -73,7 +73,7 @@ fig_PC1vsPC2 <- my_PCA_df %>%
   geom_point(aes(fill = SampleType_Drug, shape = SampleType_Drug), size = 6, alpha = 0.8, stroke = 0.8) + 
   scale_fill_manual(values=c(`Broth_Untreated` = "palegreen2", `Broth_RIF` = "green4", `THP1_Untreated`= "#FDBF6F", `THP1_RIF` = "#FF7F00")) +  
   scale_shape_manual(values=c(`Broth_Untreated` = 21, `Broth_RIF` = 22, `THP1_Untreated`= 21, `THP1_RIF` = 22)) + 
-  # geom_text_repel(aes(label = Week), size= 2.5, box.padding = 0.4, segment.color = NA, max.overlaps = Inf) + 
+  geom_text_repel(aes(label = SampleID), size= 2.5, box.padding = 0.4, segment.color = NA, max.overlaps = Inf) + 
   labs(title = "PCA All samples",
        # subtitle = "All normal Depletion, no thresholds",
        x = paste0("PC1: ", summary_PCA[1,1], "%"),
@@ -81,7 +81,7 @@ fig_PC1vsPC2 <- my_PCA_df %>%
   my_plot_themes
 fig_PC1vsPC2
 ggsave(fig_PC1vsPC2,
-       file = "PCA_AllSamples.pdf",
+       file = "PCA_AllSamples2.pdf",
        path = "Figures/PCA",
        width = 8, height = 5, units = "in")
 
